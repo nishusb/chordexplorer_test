@@ -1,0 +1,31 @@
+body {
+  /* background: linear-gradient(0deg, rgba(57,120,104,1) 42%, rgba(124,200,255,1) 100%); */
+  background-color: #64d0eb;
+  font-family:
+    Roboto Mono,
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.note-button {
+  transition: 100ms;
+  background-color: var(--button-bg-color) !important;
+  transition: background-color 0.2s;
+}
+
+.note-button.active,
+.note-button:hover {
+  background-color: var(--button-hover-bg-color) !important;
+}
+
+.btn-light.pe-none:hover {
+  background-color: var(--bs-light);
+  color: var(--bs-body-color);
+  cursor: pointer;
+}
+
+/* .btn-dark.pe-none:hover {
+    background-color: var(--bs-dark);
+    color: var(--bs-white);
+  } */
