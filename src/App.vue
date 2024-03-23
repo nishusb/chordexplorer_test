@@ -199,7 +199,7 @@ const displayIntervals = computed(() => {
       <div class="py-3 py-md-5">
         <div class="row g-0 gap-3 gap-md-5">
           <div
-            class="col-12 col-md row justify-content-center gx-0 gap-2 gap-md-3 p-2 p-md-3 rounded-4 text-bg-dark"
+            class="col-12 col-lg row justify-content-center gx-0 gap-2 gap-md-3 p-2 p-md-3 rounded-4 text-bg-dark"
           >
             <div class="col-auto" v-for="note in displayIntervals" :key="note.name">
               <div class="p-0 px-1 fs-1 fw-bold">
@@ -212,7 +212,7 @@ const displayIntervals = computed(() => {
             </div>
           </div>
           <div
-            class="col-12 col-md text-bg-dark rounded-4 p-3 d-flex justify-content-center align-items-center"
+            class="col-12 col-lg text-bg-dark rounded-4 p-3 d-flex justify-content-center align-items-center"
             v-if="selectedMode === 'scales'"
           >
             <div class="row justify-content-center">
