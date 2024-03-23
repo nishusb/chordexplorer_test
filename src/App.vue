@@ -313,7 +313,7 @@ const displayIntervals = computed(() => {
             <div
               class="col-3 col-md"
               v-for="(numeral, index) in romanNumerals"
-              :key="numeral.chord.quality"
+              :key="index"
             >
               <button
                 class="btn fs-5 btn-light btn-block w-100 p-3 rounded-0 border-0"
