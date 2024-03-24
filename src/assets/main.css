@@ -1,5 +1,5 @@
 body {
-  background-color: #64d0eb;
+  background-color: #d3833c;
   font-family:
     Roboto Mono,
     Arial,
@@ -23,8 +23,3 @@ body {
   color: var(--bs-body-color);
   cursor: pointer;
 }
-
-/* .btn-dark.pe-none:hover {
-    background-color: var(--bs-dark);
-    color: var(--bs-white);
-  } */
