@@ -1,10 +1,23 @@
 <script setup lang="ts">
 import '@/assets/main.css'
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import Note from './note'
-import { notes, scales, formatRomanNumeralChord, diatonicSemitoneValues } from './utils'
+import { notes, scales, formatRomanNumeralChord, diatonicSemitoneValues, colors } from './utils'
 import ButtonGroup from './ButtonGroup.vue'
 import SettingsPage from './SettingsPage.vue'
+
+const setInitialBackgroundColor = () => {
+  const savedColor = localStorage.getItem('selectedColor')
+  if (savedColor !== null) {
+    document.body.style.backgroundColor = savedColor
+  } else {
+    document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  }
+}
+
+onMounted(() => {
+  setInitialBackgroundColor()
+})
 
 function generateScaleFromNote(note: Note, musicalMode = 'major'): Note[] {
   const startIndex = notes.indexOf(note.name)
@@ -87,7 +100,6 @@ const romanNumerals = computed(() => {
   return romanNumeralsConst.map((numeral, interval) => {
     const semitoneOffset = chordSemitoneValues[interval % 7]
     const chordIntervals = [0, 2, 4, 6].slice(0, selectedChordLength.value)
-    console.log(chordIntervals)
 
     return formatRomanNumeralChord(
       numeral,
@@ -212,11 +224,11 @@ const displayIntervals = computed(() => {
 
 <template>
   <div id="app" class="user-select-none">
-    <div class="container-fluid container-lg text-bg-light rounded-0 px-3 px-md-5">
-      <div v-if="selectedMode === 'settings'">
+    <div class="container-fluid container-lg text-bg-light rounded-0">
+      <div v-if="selectedMode === 'settings'" class="pb-4">
         <SettingsPage />
       </div>
-      <div v-if="['scales', 'chords'].includes(selectedMode)" class="text-center">
+      <div v-if="['scales', 'chords'].includes(selectedMode)" class="text-center px-3 px-md-5">
         <div class="pt-3 pt-md-5 pb-3 pb-md-4">
           <div class="row g-0 gap-3 gap-md-4">
             <div
@@ -256,16 +268,16 @@ const displayIntervals = computed(() => {
                   </div>
                 </div>
               </div>
-              <div class="col-auto d-flex flex-column justify-content-center">
+              <div class="col-auto p-0 d-flex flex-column justify-content-center">
                 <button
-                  class="btn btn-secondary border-0 rounded-4 mb-2"
+                  class="btn btn-secondary border-0 rounded-pill px-4 mb-2"
                   :class="{ active: selectedChordLength === 3 }"
                   @click="selectedChordLength = 3"
                 >
                   3
                 </button>
                 <button
-                  class="btn btn-secondary border-0 rounded-4"
+                  class="btn btn-secondary border-0 rounded-pill px-4"
                   :class="{ active: selectedChordLength === 4 }"
                   @click="selectedChordLength = 4"
                 >
