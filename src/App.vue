@@ -2,7 +2,8 @@
 import '@/assets/main.css'
 import { ref, computed, watch, onMounted } from 'vue'
 import Note from './note'
-import { notes, scales, formatRomanNumeralChord, diatonicSemitoneValues, colors } from './utils'
+import { notes, scales, formatRomanNumeralChord, diatonicSemitoneValues } from './utils'
+import { colors } from './settings'
 import ButtonGroup from './ButtonGroup.vue'
 import SettingsPage from './SettingsPage.vue'
 
@@ -11,7 +12,7 @@ const setInitialBackgroundColor = () => {
   if (savedColor !== null) {
     document.body.style.backgroundColor = savedColor
   } else {
-    document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
   }
 }
 

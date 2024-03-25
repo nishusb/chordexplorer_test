@@ -12,15 +12,6 @@ export const scales: { [key: string]: number[] } = {
 export const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 export const diatonicSemitoneValues = [0, 2, 4, 5, 7, 9, 11]
 
-export const colors = [
-  'rgb(228, 80, 143)',
-  'rgb(85, 111, 181)',
-  'rgb(174, 221, 205)',
-  'rgb(154, 222, 123)',
-  '#EEF296',
-  '#508D69'
-]
-
 export type TriadQuality =
   | 'major'
   | 'minor'
